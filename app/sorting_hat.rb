@@ -30,7 +30,7 @@ class SortingHat
       # Return the house that had the most matches
       best_match = score.select{|x, i| i==score.values.max}
 
-      # If one house is returned assign student to that school
+      # If one house is returned assign student to that house
       if best_match.count == 1
         @sorted[best_match.keys[0]] << student[:name]
       else
@@ -49,6 +49,7 @@ class SortingHat
     end
   end
 
+  # For use with sorting User via CLI prompt
   def new_student
     puts "What is your name?"
     name = gets.chomp
