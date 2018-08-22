@@ -46,12 +46,13 @@ describe SortingHat do
 
     context 'user input' do
       before do
-      allow($stdout).to receive(:gets).and_return("Chuck\n")
+        expect($stdin).to receive(:gets).and_return("chuck")
+        expect($stdin).to receive(:gets).and_return("clever brave defiant")
       end
 
       it 'takes a name and traits before sorting' do
-        puts :gets
-        puts sorting_hat.sort(sorting_hat.new_student, houses)
+        result = {griffindor: ["chuck"]}
+        expect(sorting_hat.sort(sorting_hat.new_student, houses)).to include(result)
       end
 
     end
